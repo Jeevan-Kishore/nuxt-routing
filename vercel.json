@@ -7,6 +7,17 @@
       "config": {
         "serverFiles": ["package.json"]
       }
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "nuxt.config.ts",
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "serverFiles": ["api/**"]
+      }
     }
   ],
   "routes": [
@@ -17,6 +28,10 @@
         "Cache-Control": "public, max-age=0, must-revalidate",
         "Service-Worker-Allowed": "/"
       }
-    }
+    },
+      {
+        "src": "/api/hello",
+        "dest": "/api/hello.js"
+      }
   ]
 }

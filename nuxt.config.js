@@ -42,5 +42,8 @@ export default {
   },
 
   router: {
-  }
+  },
+
+  serverMiddleware:
+      process.env.NODE_ENV === 'production' ? [] : ['~/api/hello.js'],
 }
